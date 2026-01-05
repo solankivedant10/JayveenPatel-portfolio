@@ -11,6 +11,10 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ProjectDetail from "./components/Projects/ProjectDetails/ProjectDetails.js";
+import Experience from "./components/Experience/Experience";
+import Contact from "./components/Contact/Contact";
+
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -31,10 +35,14 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
           <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/project" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+
         </Routes>
         <Footer />
       </div>

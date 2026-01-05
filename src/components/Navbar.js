@@ -9,6 +9,9 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { MdWorkOutline } from "react-icons/md";
+import { AiOutlineMail } from "react-icons/ai";
+
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -73,6 +76,12 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
+                <Nav.Link as={Link} to="/experience" onClick={() => updateExpanded(false)}>
+                  <MdWorkOutline style={{ marginBottom: "2px" }} /> Experience
+                </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/project"
@@ -92,7 +101,12 @@ function NavBar() {
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
             </Nav.Item>
-
+            
+            <Nav.Item>
+              <Nav.Link as={Link} to="/contact" onClick={() => updateExpanded(false)}>
+                <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

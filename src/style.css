@@ -719,4 +719,152 @@ button:focus {
   z-index: 1; /* all content above star canvas */
 }
 
-/* Keep your gradients (they are semi-transparent already), do NOT force transparent backgrounds */
+/* --------- */
+/* Contact */
+/* --------- */
+.contact-section {
+  position: relative !important;
+  padding-top: 140px !important;
+  padding-bottom: 30px !important;
+  color: white !important;
+}
+
+.contact-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  text-align: left;
+  backdrop-filter: blur(10px);
+}
+
+.contact-card .form-label {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.contact-card .form-control {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 12px 14px !important;
+}
+
+.contact-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.contact-interests {
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.contact-interests-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.contact-preview {
+  margin-top: 6px;
+  margin-bottom: 14px;
+  opacity: 0.9;
+}
+
+.contact-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 14px !important;
+  border-radius: 12px !important;
+  font-size: 1.1rem !important;
+}
+
+.contact-fallback {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.contact-fallback a {
+  text-decoration: none;
+}
+.contact-fallback a:hover {
+  text-decoration: underline;
+}
+/* --------- */
+/* Experience (Tabbed) */
+/* --------- */
+.experience-section {
+  position: relative !important;
+  padding-top: 140px !important;
+  padding-bottom: 80px !important; /* IMPORTANT: prevents footer overlap */
+  color: white !important;
+  z-index: 1;
+}
+
+.experience-tabs {
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.experience-tab {
+  border-radius: 14px !important;
+  padding: 10px 16px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  color: white !important;
+  transition: 0.25s ease !important;
+}
+
+.experience-tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(197, 115, 230, 0.6) !important;
+}
+
+.experience-tabs .nav-link.active {
+  background: rgba(98, 54, 134, 0.55) !important;
+  border-color: rgba(197, 115, 230, 0.75) !important;
+  box-shadow: 0 0 18px rgba(197, 115, 230, 0.18);
+}
+
+.experience-card {
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 26px 26px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+.experience-header {
+  margin-bottom: 14px;
+}
+
+.experience-role {
+  margin-bottom: 6px;
+}
+
+.experience-sep {
+  opacity: 0.6;
+  margin: 0 6px;
+}
+
+.experience-dates {
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.experience-list {
+  margin-top: 14px;
+  line-height: 1.85;
+  padding-left: 18px;
+}
+
+.experience-list li {
+  margin-bottom: 10px;
+}
+

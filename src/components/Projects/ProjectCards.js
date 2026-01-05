@@ -1,27 +1,25 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function ProjectCards(props) {
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="project" />
+      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-
         <Card.Text style={{ textAlign: "justify" }}>{props.description}</Card.Text>
 
-        {/* Optional extra detail blocks for FP&A-style projects */}
-        {props.impact && (
-          <Card.Text style={{ textAlign: "left", marginTop: "12px" }}>
-            <strong className="purple">Impact:</strong> {props.impact}
-          </Card.Text>
-        )}
-
-        {props.stack && (
-          <Card.Text style={{ textAlign: "left", marginTop: "6px" }}>
-            <strong className="purple">Tools:</strong> {props.stack}
-          </Card.Text>
-        )}
+        {/* View More → internal route */}
+        <Button
+          as={Link}
+          to={`/projects/${props.id}`}
+          variant="primary"
+          style={{ marginTop: "10px" }}
+        >
+          View More
+        </Button>
       </Card.Body>
     </Card>
   );
