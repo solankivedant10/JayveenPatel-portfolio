@@ -1,17 +1,14 @@
-// src/components/Footer.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 
 function Footer() {
   const year = new Date().getFullYear();
 
-  // Update these links once you confirm your exact profiles.
+  // Update LinkedIn when you have it; email is already correct from your resume.
   const links = {
-    github: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/jayveen-patel/",
     email: "mailto:jayveenpatel31@gmail.com",
   };
 
@@ -28,17 +25,6 @@ function Footer() {
 
         <Col md="4" className="footer-body">
           <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href={links.github}
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-
             <li className="social-icons">
               <a
                 href={links.linkedin}

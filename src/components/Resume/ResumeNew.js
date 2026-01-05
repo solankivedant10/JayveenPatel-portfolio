@@ -3,12 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-
-// IMPORTANT:
-// Place your resume PDF at: src/Assets/Jayveen_Patel_Resume.pdf
-// If your filename differs, update this import accordingly.
 import pdf from "../../Assets/Jayveen_Patel_Resume.pdf";
-
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";

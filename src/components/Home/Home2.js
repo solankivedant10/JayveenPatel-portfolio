@@ -1,14 +1,13 @@
-// src/components/Home/Home2.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/profile.jpg"; // <-- your real photo
 import Tilt from "react-parallax-tilt";
 
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
+        <Row className="align-items-center">
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
@@ -41,9 +40,18 @@ function Home2() {
             </p>
           </Col>
 
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+          <Col md={4} className="myAvtar d-flex justify-content-center">
+            <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
+              <img
+                src={myImg}
+                alt="Jayveen Patel"
+                className="img-fluid rounded-circle"
+                style={{
+                  maxWidth: "240px",
+                  border: "4px solid var(--imp-text-color)",
+                  boxShadow: "0 0 25px rgba(47, 230, 208, 0.35)",
+                }}
+              />
             </Tilt>
           </Col>
         </Row>

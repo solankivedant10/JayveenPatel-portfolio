@@ -1,17 +1,15 @@
-// src/components/Projects/Projects.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
-// Re-using existing images in the template as placeholders.
-// If you want finance-specific images, replace these in src/Assets/Projects/.
+// Keeping template images as placeholders.
+// You can replace with finance-themed screenshots later.
 import leaf from "../../Assets/Projects/leaf.png";
 import emotion from "../../Assets/Projects/emotion.png";
 import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/Projects/chatify.png";
 import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
 
 function Projects() {
   return (
@@ -19,72 +17,72 @@ function Projects() {
       <Particle />
       <Container>
         <h1 className="project-heading">
-          Featured <strong className="purple">Analytics Work</strong>
+          Featured <strong className="purple">FP&amp;A Work</strong>
         </h1>
 
         <p style={{ color: "white" }}>
-          A selection of FP&amp;A and finance-analytics projects focusing on forecasting,
-          automation, and executive reporting. (Links can be added to GitHub or demos if available.)
+          Finance analytics initiatives focused on budgeting, forecasting, automation,
+          and executive reporting.
         </p>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={chatify}
-              isBlog={false}
-              title="Budget vs Actual Variance Dashboard"
-              description="Executive-friendly variance reporting with drilldowns for cost drivers and performance KPIs. Built for recurring monthly reviews and faster decision cycles."
-              ghLink="#"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bitsOfCode}
-              isBlog={false}
-              title="Forecast Accuracy Improvement Model"
-              description="Scenario-based forecasting framework to improve accuracy and reduce variance. Includes sensitivity analysis and standardized assumptions for planning."
-              ghLink="#"
+              title="Budget Ownership & Operating Plan Management"
+              description="Built and maintained operating plan models to support budget planning, approvals, and monthly performance reviews. Designed model structure to improve transparency of cost drivers and support leadership decision-making."
+              impact="Managed $1.2B annual operating budget and improved forecast precision by ~10%."
+              stack="Advanced Excel, SAP FICO, standard FP&A frameworks"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={editor}
-              isBlog={false}
-              title="SQL Finance Metrics Pipeline"
-              description="SQL-based extraction and transformation of finance metrics feeding standardized reports and dashboards. Designed to reduce manual reconciliation and improve reliability."
-              ghLink="#"
+              title="Integrated Forecasting Model (Data + Analytics)"
+              description="Developed forecasts by combining internal performance drivers with external market inputs, enabling tighter variance control and clearer assumptions. Built repeatable logic to refresh forecasts with minimal manual effort."
+              impact="Reduced forecast variance from ~8% to ~5% and strengthened planning accuracy."
+              stack="SQL, Python, Excel modeling"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={leaf}
-              isBlog={false}
-              title="Interest Rate & Liquidity Scenario Simulator"
-              description="Multi-scenario model to simulate interest rate movements, liquidity risk, and deposit growth outcomes to support strategic planning and risk-aware budgeting."
-              ghLink="#"
+              title="Scenario & Sensitivity Modeling (Rates / Liquidity / Deposits)"
+              description="Created multi-scenario financial models to simulate interest rate shifts, liquidity risk, and deposit growth. Structured scenarios to support long-term planning and risk-aware budgeting decisions."
+              impact="Improved strategic planning speed and consistency of scenario outputs for stakeholders."
+              stack="Excel scenario modeling, financial sensitivity analysis"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={suicide}
-              isBlog={false}
-              title="Automated Reporting Pack"
-              description="Recurring reporting automation using Power Query and VBA principles to reduce manual workload and improve data quality across monthly and quarterly cycles."
-              ghLink="#"
+              title="Automation of Recurring Reporting Pack"
+              description="Automated recurring financial reporting workflows and standardized reporting packs for consistent variance commentary and KPI storytelling. Reduced manual steps and improved reliability of published numbers."
+              impact="Automated 15+ recurring dashboards and reduced manual workload by ~30%."
+              stack="Power Query, VBA, Excel"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={emotion}
-              isBlog={false}
-              title="Executive KPI Storyboard"
-              description="A structured KPI pack that combines trend analysis and commentary to improve stakeholder clarity. Designed for leadership reviews and performance tracking."
-              ghLink="#"
+              title="Executive KPI Dashboards & Performance Storytelling"
+              description="Designed executive-facing KPI dashboards to track revenue trends, operational drivers, and performance metrics. Built drilldowns aligned to leadership review cadence to enable faster decisions."
+              impact="Increased stakeholder clarity and reduced time to insight for monthly reviews."
+              stack="Power BI, Excel, KPI design"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={chatify}
+              title="Cost Driver Analysis & Savings Identification"
+              description="Conducted structured variance and cost-driver analysis to identify operational inefficiencies. Translated insights into actionable recommendations and tracked realized outcomes."
+              impact="Identified ~$2M in annual savings opportunities."
+              stack="Variance analysis, cost modeling, Excel/BI"
             />
           </Col>
         </Row>

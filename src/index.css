@@ -1,11 +1,27 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); */
-
 @import url("https://fonts.googleapis.com/css2?family=Outfit&family=PT+Mono&display=swap");
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
   font-family: "PT Mono", monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+
+  /* Base background behind your starfield */
+  background: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  overflow-x: hidden;
+}
+
+/* Make sure tsparticles stays in the background across all routes */
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* prevents blocking clicks */
 }

@@ -4,16 +4,15 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import Techstack from "../About/Techstack";
-import Github from "../About/Github";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
 
 function Home() {
+  const links = {
+    linkedin: "https://www.linkedin.com/in/jayveen-patel/",
+    email: "mailto:jayveenpatel31@gmail.com",
+  };
+
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -29,7 +28,7 @@ function Home() {
               </h1>
 
               <h1 className="heading-name">
-                I'M
+                I&apos;M
                 <strong className="main-name"> Jayveen Patel</strong>
               </h1>
 
@@ -41,7 +40,7 @@ function Home() {
             <Col md={5} style={{ paddingBottom: 20 }}>
               <img
                 src={homeLogo}
-                alt="home pic"
+                alt="home illustration"
                 className="img-fluid"
                 style={{ maxHeight: "450px" }}
               />
@@ -49,54 +48,38 @@ function Home() {
           </Row>
         </Container>
       </Container>
+
       <Home2 />
 
       <Container>
         <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
           <Col md={12} className="home-about-social">
-            <h1>Find Me On</h1>
+            <h1>Connect</h1>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              Feel free to <span className="purple">reach out</span> for FP&amp;A, finance
+              analytics, or reporting opportunities.
             </p>
+
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/soumyajit4419"
+                  href={links.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://twitter.com/Soumyajit4419"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/soumyajit4419/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
+
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/soumyajit4419"
-                  target="_blank"
-                  rel="noreferrer"
+                  href={links.email}
                   className="icon-colour home-social-icons"
+                  aria-label="Email"
                 >
-                  <AiFillInstagram />
+                  <AiOutlineMail />
                 </a>
               </li>
             </ul>

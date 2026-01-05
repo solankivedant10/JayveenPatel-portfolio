@@ -5,48 +5,61 @@ function Particle() {
   return (
     <Particles
       id="tsparticles"
-      params={{
+      options={{
+        background: {
+          color: { value: "transparent" },
+        },
+        fpsLimit: 60,
         particles: {
           number: {
-            value: 160,
+            value: 140,
             density: {
               enable: true,
-              value_area: 1500,
+              area: 1100,
             },
           },
-          line_linked: {
-            enable: false,
-            opacity: 0.03,
+          color: {
+            value: "#ffffff",
           },
-          move: {
-            direction: "right",
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
+          shape: {
+            type: "circle",
           },
           opacity: {
-            anim: {
+            value: { min: 0.15, max: 0.75 },
+            animation: {
               enable: true,
-              speed: 1,
-              opacity_min: 0.05,
+              speed: 0.8,          // <-- faster twinkle (visible)
+              minimumValue: 0.12,
+              sync: false,
+            },
+          },
+          size: {
+            value: { min: 0.6, max: 1.6 },
+            random: true,
+          },
+          move: {
+            enable: true,
+            speed: 0.6,            // <-- THIS is the main fix (visible floating)
+            direction: "none",
+            random: true,
+            straight: false,
+            outModes: {
+              default: "out",
             },
           },
         },
         interactivity: {
           events: {
-            onclick: {
-              enable: true,
-              mode: "push",
+            onHover: {
+              enable: false,
             },
-          },
-          modes: {
-            push: {
-              particles_nb: 1,
+            onClick: {
+              enable: false,
             },
+            resize: true,
           },
         },
-        retina_detect: true,
+        detectRetina: true,
       }}
     />
   );

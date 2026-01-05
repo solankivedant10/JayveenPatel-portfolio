@@ -1,76 +1,111 @@
-<h2 align="center">
-  Portfolio Website - v2.0<br/>
-  <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a>
-</h2>
-<div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
-</div>
+Jayveen Patel — FP&A Analyst Portfolio
 
-<br/>
+This repository contains the source code for my personal portfolio website, built to showcase my experience and work in Financial Planning & Analysis (FP&A), finance analytics, and data-driven decision support.
 
-<center>
+The site highlights my background in budgeting, forecasting, variance analysis, automation, and executive reporting within the banking and financial services domain.
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
-![GitHub Repo stars](https://img.shields.io/github/stars/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
-![GitHub forks](https://img.shields.io/github/forks/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge)
+🔍 Overview
 
-</center>
+This portfolio is designed to communicate:
 
-<h3 align="center">
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Report Bug</a> &nbsp; &nbsp;
-    🔹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Request Feature</a>
-</h3>
+My professional profile as an FP&A Analyst
+Key finance and analytics projects I’ve worked on
+Tools and technologies I use for financial modeling and reporting
+A downloadable version of my resume
 
-## TL;DR
+🧠 Key Highlights
 
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Soumyajit4419](https://github.com/soumyajit4419/Portfolio). Thanks!
+4+ years of experience in **banking & financial services**
+Ownership of **large-scale budgets and forecasts**
+Strong focus on:
 
-## Built With
+  Budgeting & forecasting
+  Variance and KPI analysis
+  Scenario & sensitivity modeling
+  Finance reporting automation
+Built with a clean, modern UI and subtle visual effects (starfield background)
 
-My personal portfolio <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+🛠 Tech Stack
 
-This project was built using these technologies.
+Frontend
 
-- React.js
-- Node.js
-- Express.js
-- CSS3
-- VsCode
-- Vercel
+React (Create React App)
+JavaScript (ES6+)
+HTML5 / CSS3
+React Bootstrap
 
-## Features
+Visualization & UI
 
-**📖 Multi-Page Layout**
+react-tsparticles (animated star background)
+react-icons
+Custom CSS theme
 
-**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
+Finance & Analytics (Professional Skillset)
 
-**📱 Fully Responsive**
+Advanced Excel
+SQL
+Python
+Power BI
+Financial modeling & reporting frameworks
 
-## Getting Started
+📂 Project Structure (High Level)
 
-Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
+```text
+src/
+├── components/
+│   ├── Home/
+│   ├── About/
+│   ├── Projects/
+│   ├── Resume/
+│   ├── Navbar.js
+│   └── Footer.js
+├── Assets/
+│   ├── profile.jpg
+│   └── icons / images
+├── App.js
+├── index.js
+├── style.css
+└── index.css
+```
 
-## 🛠 Installation and Setup Instructions
+🚀 Running the Project Locally
 
-1. Installation: `npm install`
+If you want to run this portfolio locally:
 
-2. In the project directory, you can run: `npm start`
+```bash
+# install dependencies
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.
+# start development server
+npm start
+```
 
-## Usage Instructions
+The app will be available at:
 
-Open the project folder and Navigate to `/src/components/`. <br/>
-You will find all the components used and you can edit your information accordingly.
+```
+http://localhost:3000
+```
+📄 Resume
 
-### Show your support
+The Resume section of the site includes:
 
-Give a ⭐ if you like this website!
+Embedded PDF preview
+Downloadable CV
 
-<a href="https://www.buymeacoffee.com/soumyajit4419" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+This allows recruiters and hiring managers to quickly review or save my resume.
+
+🎨 Design Philosophy
+
+Minimal, professional, and business-focused
+Subtle animations (no distractions)
+Dark theme with finance-oriented accent colors
+Content-first layout for recruiters and decision-makers
+
+📬 Contact
+
+If you’d like to connect regarding FP&A, finance analytics, or reporting opportunities:
+
+Email: [jayveenpatel31@gmail.com](mailto:jayveenpatel31@gmail.com)
+
+Thank you for visiting.
+
