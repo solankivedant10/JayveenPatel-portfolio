@@ -1,3 +1,4 @@
+// src/components/Home/Home2.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
@@ -12,41 +13,34 @@ function Home2() {
             <h1 style={{ fontSize: "2.6em" }}>
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
+
             <p className="home-about-body">
-              I’m a Software Engineer who loves transforming ideas into
-              reliable, scalable products. Over time, I’ve explored several
-              technologies and found my passion in building high-performance
-              systems and intuitive user experiences.
+              I’m an <b className="purple">FP&amp;A Analyst</b> with 4+ years of experience
+              supporting <b className="purple">banking and financial services</b> through
+              budgeting, forecasting, and data-driven financial modeling.
               <br />
               <br />
-              I’m proficient in
+              I specialize in translating complex financial and operational data into
+              <b className="purple"> actionable insights</b> for leadership—using robust
+              variance analysis, KPI tracking, and scenario planning.
+              <br />
+              <br />
+              I’m proficient in{" "}
               <i>
-                <b className="purple">
-                  {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
-                </b>
-              </i>
-              — and I enjoy working across both backend and frontend stacks.
+                <b className="purple">Advanced Excel, SQL, Python, and Power BI</b>
+              </i>{" "}
+              to automate reporting, improve forecast accuracy, and scale decision-ready
+              dashboards.
               <br />
               <br />
-              My key areas of interest include developing
+              Whenever possible, I focus on building{" "}
               <i>
-                <b className="purple">
-                  {" "}
-                  Web Applications, Blockchain Solutions,{" "}
-                </b>
-              </i>
-              and exploring new ways to bridge on-chain and off-chain systems.
-              <br />
-              <br />
-              Whenever possible, I love building projects with
-              <b className="purple"> Node.js </b> and modern frameworks like{" "}
-              <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
-              </i>
+                <b className="purple">repeatable financial workflows</b>
+              </i>{" "}
+              that reduce manual effort, improve data reliability, and accelerate planning cycles.
             </p>
           </Col>
+
           <Col md={4} className="myAvtar">
             <Tilt>
               <img src={myImg} className="img-fluid" alt="avatar" />
@@ -57,4 +51,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
