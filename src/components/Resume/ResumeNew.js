@@ -1,63 +1,85 @@
-// src/components/Resume/ResumeNew.js
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import pdf from "../../Assets/Jayveen_Patel_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Particle />
+    <Container fluid className="resume-section">
+      <Particle />
+      <Container>
+        <h1 className="project-heading">
+          My <strong className="purple">Resume</strong>
+        </h1>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            rel="noreferrer"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download Resume
-          </Button>
+        {/* Top Buttons */}
+        <Row className="justify-content-center" style={{ padding: "20px 0" }}>
+          <Col xs="auto" className="mb-2">
+            <Button
+              variant="primary"
+              href={pdf}
+              download
+              aria-label="Download resume PDF"
+              className="d-flex align-items-center"
+            >
+              <AiOutlineDownload />
+              &nbsp;Download Resume
+            </Button>
+          </Col>
+
+          <Col xs="auto" className="mb-2">
+            <Button
+              variant="primary"
+              href={pdf}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open in New Tab
+            </Button>
+          </Col>
         </Row>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+        {/* Fix for Issue #8: Enhanced PDF Viewer 
+            The iframe now uses the 'resume-embed-wrap' class from style.css 
+            which is set to 1000px height for desktop readability.
+        */}
+        <div className="resume-embed-wrap">
+          <iframe
+            className="resume-embed"
+            title="Jayveen Patel Resume"
+            src={`${pdf}#view=FitH`} // Forces PDF to fit container width
+            width="100%"
+            height="100%"
+            style={{ border: "none" }}
+          />
+        </div>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            rel="noreferrer"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download Resume
-          </Button>
+        <p className="resume-fallback text-center mt-3" style={{ color: "white", opacity: 0.8 }}>
+          If the viewer doesn't load, you can {" "}
+          <a href={pdf} target="_blank" rel="noreferrer" className="purple">
+            click here
+          </a>
+          {" "}to view or download it directly.
+        </p>
+
+        {/* Bottom Download Button */}
+        <Row className="justify-content-center" style={{ padding: "20px 0" }}>
+          <Col xs="auto">
+            <Button
+              variant="primary"
+              href={pdf}
+              download
+              className="d-flex align-items-center"
+            >
+              <AiOutlineDownload />
+              &nbsp;Download Resume
+            </Button>
+          </Col>
         </Row>
       </Container>
-    </div>
+    </Container>
   );
 }
 

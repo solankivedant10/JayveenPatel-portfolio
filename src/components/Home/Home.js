@@ -13,19 +13,23 @@ function Home() {
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
+              <h1 className="heading">
                 Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
+                <span
+                  className="wave"
+                  role="img"
+                  aria-label="Waving hand"
+                >
                   👋🏻
                 </span>
               </h1>
 
               <h1 className="heading-name">
-                I&apos;M
-                <strong className="main-name"> Jayveen Patel</strong>
+                I'M
+                <strong className="main-name"> JAYVEEN PATEL</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div style={{ paddingLeft: 45, paddingTop: 30, textAlign: "left" }}>
                 <Type />
               </div>
             </Col>
@@ -33,7 +37,7 @@ function Home() {
             <Col md={5} style={{ paddingBottom: 20 }}>
               <img
                 src={homeLogo}
-                alt="home illustration"
+                alt="Financial Analytics Illustration"
                 className="img-fluid"
                 style={{ maxHeight: "450px" }}
               />
@@ -41,8 +45,6 @@ function Home() {
           </Row>
         </Container>
       </Container>
-
-      {/* About / Intro section */}
       <Home2 />
     </section>
   );

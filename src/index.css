@@ -25,3 +25,16 @@ body {
   z-index: -1;
   pointer-events: none; /* prevents blocking clicks */
 }
+/* Ensure the root container doesn't collapse */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for the Preloader blocking clicks */
+.preloader-none {
+  opacity: 0;
+  pointer-events: none; /* Add this to your Preloader logic */
+  transition: opacity 0.5s ease;
+}

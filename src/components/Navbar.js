@@ -7,11 +7,10 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlineMail,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { MdWorkOutline } from "react-icons/md";
-import { AiOutlineMail } from "react-icons/ai";
-
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -19,6 +18,7 @@ function NavBar() {
 
   useEffect(() => {
     function scrollHandler() {
+      // Switches the background from transparent to dark-blur when scrolling
       updateNavbar(window.scrollY >= 20);
     }
 
@@ -34,24 +34,29 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          className="d-flex align-items-center"
+          onClick={() => updateExpanded(false)}
+        >
           <span
             style={{
-            fontWeight: 800,
-            fontSize: "1.6rem",
-            letterSpacing: "0.5px",
+              fontWeight: 800,
+              fontSize: "1.5rem",
+              letterSpacing: "0.5px",
             }}
-          > 
-          <span className="purple">Jayveen Patel</span>
-          <span style={{ color: "white" }}>.</span>
+          >
+            <span className="purple">Jayveen Patel</span>
+            <span style={{ color: "white" }}>.</span>
           </span>
         </Navbar.Brand>
-
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => updateExpanded(expand ? false : "expanded")}
         >
+          {/* Custom hamburger lines defined in style.css */}
           <span></span>
           <span></span>
           <span></span>
@@ -66,42 +71,33 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> About
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-                <Nav.Link as={Link} to="/experience" onClick={() => updateExpanded(false)}>
-                  <MdWorkOutline style={{ marginBottom: "2px" }} /> Experience
-                </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
+                to="/experience"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} />{" "}
-                Projects
+                <MdWorkOutline style={{ marginBottom: "2px" }} /> Experience
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/projects" onClick={() => updateExpanded(false)}>
+                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> Projects
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link as={Link} to="/resume" onClick={() => updateExpanded(false)}>
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
             </Nav.Item>
-            
+
             <Nav.Item>
               <Nav.Link as={Link} to="/contact" onClick={() => updateExpanded(false)}>
                 <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact

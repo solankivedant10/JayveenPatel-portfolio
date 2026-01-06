@@ -1,6 +1,10 @@
+// src/components/Pre.js
 import React from "react";
-function Pre(props) {
-  return <div id={props.load ? "preloader" : "preloader-none"}></div>;
+
+function Pre({ load }) {
+  // When load === false, the element still exists,
+  // but CSS will fully remove it from interaction.
+  return <div id={load ? "preloader" : "preloader-none"} />;
 }
 
 export default Pre;

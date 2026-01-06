@@ -1,4 +1,3 @@
-// src/components/About/AboutCard.js
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
@@ -10,23 +9,15 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             Hi, I’m <span className="purple">Jayveen Patel</span>, based in{" "}
-            <span className="purple">Texas, USA</span> (open to relocate).
+            <span className="purple">Texas, USA</span>.
             <br />
             <br />
-            I’m a <span className="purple">Financial Planning &amp; Analysis (FP&amp;A) Analyst</span>{" "}
-            with 4+ years of experience driving financial performance, strategic planning, and
-            decision support within banking and financial services.
+            I’m a <span className="purple">FP&A Analyst</span> with 4+ years of experience 
+            driving financial performance and strategic planning within banking.
             <br />
             <br />
-            My work focuses on{" "}
-            <span className="purple">budgeting, forecasting, P&amp;L and variance analysis</span>, and
-            building scalable financial models that improve accuracy and accelerate planning cycles.
             I leverage <span className="purple">SQL, Python, Power BI, and advanced Excel</span> to
-            automate reporting, strengthen controls, and deliver clear executive insights.
-            <br />
-            <br />
-            Highlights include managing large operating budgets, improving forecast precision, and
-            developing automated dashboards and scenarios to guide leadership decisions.
+            automate reporting and deliver executive insights.
           </p>
 
           <ul>
@@ -34,14 +25,15 @@ function AboutCard() {
               <ImPointRight /> Budgeting, forecasting, and scenario modeling
             </li>
             <li className="about-activity">
-              <ImPointRight /> Automated reporting with Excel (Power Query/VBA), SQL, and Python
+              <ImPointRight /> Automated reporting (Power Query/VBA/Python)
             </li>
             <li className="about-activity">
-              <ImPointRight /> Executive KPI dashboards and variance storytelling in Power BI
+              <ImPointRight /> Power BI KPI dashboards
             </li>
           </ul>
 
-          <p style={{ color: "rgb(155 126 172)" }}>
+          {/* Updated this color to a lighter teal-grey for better contrast */}
+          <p style={{ color: "#a8dadc", fontStyle: "italic", marginTop: "20px" }}>
             "Make financial insights simple, actionable, and decision-ready."
           </p>
           <footer className="blockquote-footer">Jayveen</footer>

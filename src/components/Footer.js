@@ -6,7 +6,6 @@ import { AiOutlineMail } from "react-icons/ai";
 function Footer() {
   const year = new Date().getFullYear();
 
-  // Update LinkedIn when you have it; email is already correct from your resume.
   const links = {
     linkedin: "https://www.linkedin.com/in/jayveen-patel/",
     email: "mailto:jayveenpatel31@gmail.com",
@@ -28,6 +27,7 @@ function Footer() {
             <li className="social-icons">
               <a
                 href={links.linkedin}
+                aria-label="LinkedIn profile"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -37,7 +37,11 @@ function Footer() {
             </li>
 
             <li className="social-icons">
-              <a href={links.email} style={{ color: "white" }}>
+              <a
+                href={links.email}
+                aria-label="Send email"
+                style={{ color: "white" }}
+              >
                 <AiOutlineMail />
               </a>
             </li>

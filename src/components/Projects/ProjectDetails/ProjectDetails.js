@@ -1,26 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import Particle from "../../Particle";
 import { projectsData } from "../../../data/projectsData";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 function ProjectDetails() {
   const { slug } = useParams();
   const project = projectsData.find((p) => p.slug === slug);
 
+  // Scroll to top when the project details load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (!project) {
     return (
       <Container fluid className="project-section">
-        <Particle />
-        <Container style={{ paddingTop: "140px", paddingBottom: "60px" }}>
-          <h1 className="project-heading">Project not found</h1>
-          <p style={{ color: "white" }}>
-            The project you’re looking for doesn’t exist.
-          </p>
-          <Button as={Link} to="/project" variant="primary">
-            Back to Projects
-          </Button>
+        <Container style={{ paddingTop: "140px", textAlign: "center" }}>
+          <h1 className="project-heading">Project Not Found</h1>
+          <Button as={Link} to="/projects" variant="primary">Back to Projects</Button>
         </Container>
       </Container>
     );
@@ -30,58 +29,41 @@ function ProjectDetails() {
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        <div style={{ paddingTop: "140px", paddingBottom: "10px" }}>
-          <h1 className="project-heading">
-            {project.title.split("&").length > 1 ? (
-              <>
-                {project.title.split("&")[0].trim()} &{" "}
-                <strong className="purple">{project.title.split("&")[1].trim()}</strong>
-              </>
-            ) : (
-              project.title
-            )}
+        <div className="project-details-header" style={{ paddingTop: "140px" }}>
+          <Link to="/projects" className="back-link">
+            <AiOutlineArrowLeft /> Back to Projects
+          </Link>
+          <h1 className="project-heading" style={{ marginTop: "20px" }}>
+            {project.title}
           </h1>
-
-          <p style={{ color: "white", maxWidth: "900px", margin: "0 auto" }}>
-            {project.shortDescription}
-          </p>
-
-          <div style={{ marginTop: "18px" }}>
-            <Button as={Link} to="/project" variant="primary">
-              Back to Projects
-            </Button>
-          </div>
+          <p className="project-desc">{project.shortDescription}</p>
         </div>
 
-        <Row style={{ justifyContent: "center", paddingTop: "35px", paddingBottom: "60px" }}>
+        <Row className="justify-content-center" style={{ paddingBottom: "80px" }}>
           <Col md={10}>
-            <div className="project-card-view" style={{ padding: "28px", textAlign: "left" }}>
-              <h3 style={{ marginBottom: "12px" }}>
-                <span className="purple">Projects</span>
-              </h3>
-              <ul style={{ lineHeight: 1.9 }}>
-                {project.projects.map((item, idx) => (
-                  <li key={`proj-${idx}`}>{item}</li>
-                ))}
-              </ul>
+            <div className="project-detail-card">
+              <section className="detail-segment">
+                <h3><span className="purple">The Challenge & Solution</span></h3>
+                <ul>
+                  {project.projects.map((item, i) => <li key={i}>{item}</li>)}
+                </ul>
+              </section>
 
-              <h3 style={{ marginTop: "22px", marginBottom: "12px" }}>
-                <span className="purple">Impact</span>
-              </h3>
-              <ul style={{ lineHeight: 1.9 }}>
-                {project.impact.map((item, idx) => (
-                  <li key={`impact-${idx}`}>{item}</li>
-                ))}
-              </ul>
+              <section className="detail-segment">
+                <h3><span className="purple">Quantifiable Impact</span></h3>
+                <ul>
+                  {project.impact.map((item, i) => <li key={i}>{item}</li>)}
+                </ul>
+              </section>
 
-              <h3 style={{ marginTop: "22px", marginBottom: "12px" }}>
-                <span className="purple">Tools Used</span>
-              </h3>
-              <ul style={{ lineHeight: 1.9 }}>
-                {project.tools.map((item, idx) => (
-                  <li key={`tools-${idx}`}>{item}</li>
-                ))}
-              </ul>
+              <section className="detail-segment">
+                <h3><span className="purple">Tech Stack & Tools</span></h3>
+                <div className="tool-tags">
+                  {project.tools.map((tool, i) => (
+                    <span key={i} className="tool-tag">{tool}</span>
+                  ))}
+                </div>
+              </section>
             </div>
           </Col>
         </Row>

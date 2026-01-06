@@ -22,6 +22,7 @@ function Contact() {
   const [status, setStatus] = useState({ type: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
 
+  // Memoizing the selected interests so it only recalculates when the interests object changes
   const selectedInterests = useMemo(() => {
     return INTEREST_OPTIONS.filter((opt) => form.interests[opt.key]).map((o) => o.label);
   }, [form.interests]);
@@ -48,27 +49,40 @@ function Contact() {
     e.preventDefault();
     setStatus({ type: "", message: "" });
 
-    const name = form.name.trim();
-    const email = form.email.trim();
-    const message = form.message.trim();
+    const { name, email, message } = form;
 
-    if (!name) return setStatus({ type: "danger", message: "Please enter your name." });
-    if (!email || !isValidEmail(email))
+    // First Principles: Validate before attempting any network requests
+    if (!name.trim()) {
+      return setStatus({ type: "danger", message: "Please enter your name." });
+    }
+    if (!isValidEmail(email)) {
       return setStatus({ type: "danger", message: "Please enter a valid email address." });
-    if (!message || message.length < 15)
+    }
+    if (message.trim().length < 15) {
       return setStatus({
         type: "danger",
-        message: "Please enter a message (at least 15 characters).",
+        message: "Please provide a bit more detail (at least 15 characters).",
       });
+    }
 
-    // For now: UI-only mock submit. Later: send via Resend API or open Cal.com.
     setSubmitting(true);
+
     try {
-      await new Promise((r) => setTimeout(r, 650));
+      // Mocking the API call for now
+      // This is where you will later use fetch('/api/send') for Resend.com
+      await new Promise((r) => setTimeout(r, 1000));
+
       setStatus({
         type: "success",
-        message:
-          "Message ready. Next step: we will connect this form to Resend or Cal.com for real submissions.",
+        message: "Thank you! Your message has been sent successfully (simulated).",
+      });
+
+      // Clear form on success
+      setForm({ name: "", email: "", message: "", interests: {} });
+    } catch (error) {
+      setStatus({ 
+        type: "danger", 
+        message: "Oops! Something went wrong. Please try again or email me directly." 
       });
     } finally {
       setSubmitting(false);
@@ -82,17 +96,24 @@ function Contact() {
         <h1 className="project-heading">
           Let’s <strong className="purple">Talk</strong>
         </h1>
+        <p style={{ color: "white", textAlign: "center" }}>
+          Have a project in mind or a position to discuss? Drop me a message.
+        </p>
 
         <Row style={{ justifyContent: "center", paddingTop: "25px", paddingBottom: "60px" }}>
           <Col md={10} lg={8}>
             <div className="contact-card">
-              {status.message && <Alert variant={status.type}>{status.message}</Alert>}
+              {status.message && (
+                <Alert variant={status.type} style={{ borderRadius: "10px" }}>
+                  {status.message}
+                </Alert>
+              )}
 
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3" controlId="contactName">
-                      <Form.Label>Name</Form.Label>
+                      <Form.Label className="form-label">Name</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Your name"
@@ -104,7 +125,7 @@ function Contact() {
 
                   <Col md={6}>
                     <Form.Group className="mb-3" controlId="contactEmail">
-                      <Form.Label>Email</Form.Label>
+                      <Form.Label className="form-label">Email</Form.Label>
                       <Form.Control
                         type="email"
                         placeholder="you@example.com"
@@ -116,11 +137,11 @@ function Contact() {
                 </Row>
 
                 <Form.Group className="mb-3" controlId="contactMessage">
-                  <Form.Label>Tell me about your requirement</Form.Label>
+                  <Form.Label className="form-label">Requirement Details</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={5}
-                    placeholder="Share context, timeline, and what you'd like to achieve..."
+                    placeholder="Describe the role, project, or general inquiry..."
                     value={form.message}
                     onChange={(e) => updateField("message", e.target.value)}
                   />
@@ -137,31 +158,31 @@ function Contact() {
                           label={opt.label}
                           checked={!!form.interests[opt.key]}
                           onChange={() => toggleInterest(opt.key)}
+                          className="custom-checkbox"
                         />
                       </Col>
                     ))}
                   </Row>
                 </div>
 
-                {/* Optional preview (helps you verify values while testing) */}
                 {selectedInterests.length > 0 && (
-                  <div className="contact-preview">
-                    <span className="purple">Selected:</span> {selectedInterests.join(", ")}
+                  <div className="contact-preview" style={{ marginTop: "15px", fontSize: "0.9rem" }}>
+                    <span className="purple">Selected Focus:</span> {selectedInterests.join(", ")}
                   </div>
                 )}
 
                 <Button
                   type="submit"
                   variant="primary"
-                  className="contact-submit"
+                  className="contact-submit mt-4"
+                  style={{ width: "100%", padding: "10px", fontWeight: "bold" }}
                   disabled={submitting}
                 >
-                  {submitting ? "Sending..." : "Send Message"}
+                  {submitting ? "Processing..." : "Send Message"}
                 </Button>
 
-                {/* Temporary fallback: mailto (remove once Resend/Cal is integrated) */}
                 <div className="contact-fallback">
-                  Prefer email?{" "}
+                  Or email directly at{" "}
                   <a href="mailto:jayveenpatel31@gmail.com" className="purple">
                     jayveenpatel31@gmail.com
                   </a>

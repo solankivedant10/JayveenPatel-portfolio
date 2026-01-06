@@ -2,6 +2,11 @@ import React from "react";
 import Particles from "react-tsparticles";
 
 function Particle() {
+  // First Principle: Performance Optimization
+  // Reduce the number of moving elements on mobile (width < 768px)
+  // to prevent CPU lag and improve battery life.
+  const particleCount = window.innerWidth < 768 ? 45 : 140;
+
   return (
     <Particles
       id="tsparticles"
@@ -12,7 +17,7 @@ function Particle() {
         fpsLimit: 60,
         particles: {
           number: {
-            value: 140,
+            value: particleCount,
             density: {
               enable: true,
               area: 1100,
@@ -28,7 +33,7 @@ function Particle() {
             value: { min: 0.15, max: 0.75 },
             animation: {
               enable: true,
-              speed: 0.8,          // <-- faster twinkle (visible)
+              speed: 0.8,
               minimumValue: 0.12,
               sync: false,
             },
@@ -39,7 +44,7 @@ function Particle() {
           },
           move: {
             enable: true,
-            speed: 0.6,            // <-- THIS is the main fix (visible floating)
+            speed: 0.4, // Reduced slightly for a more professional, "calm" feel
             direction: "none",
             random: true,
             straight: false,
@@ -51,7 +56,7 @@ function Particle() {
         interactivity: {
           events: {
             onHover: {
-              enable: false,
+              enable: false, // Disabled to prevent blocking clicks on your content
             },
             onClick: {
               enable: false,

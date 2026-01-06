@@ -11,10 +11,9 @@ function ProjectCards(props) {
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "justify" }}>{props.description}</Card.Text>
 
-        {/* View More → internal route */}
         <Button
           as={Link}
-          to={`/projects/${props.id}`}
+          to={`/projects/${props.slug}`}
           variant="primary"
           style={{ marginTop: "10px" }}
         >
