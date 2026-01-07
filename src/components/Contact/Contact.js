@@ -68,21 +68,37 @@ function Contact() {
     setSubmitting(true);
 
     try {
-      // Mocking the API call for now
-      // This is where you will later use fetch('/api/send') for Resend.com
-      await new Promise((r) => setTimeout(r, 1000));
-
-      setStatus({
-        type: "success",
-        message: "Thank you! Your message has been sent successfully (simulated).",
+      // REAL INTEGRATION: Sending data to your serverless API
+      // This endpoint will use the Resend SDK on the server side
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+          interests: selectedInterests.length > 0 ? selectedInterests.join(", ") : "None specified",
+        }),
       });
 
-      // Clear form on success
-      setForm({ name: "", email: "", message: "", interests: {} });
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Thank you! Your message has been sent via Resend. I will get back to you shortly.",
+        });
+        // Clear form on success
+        setForm({ name: "", email: "", message: "", interests: {} });
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to send message");
+      }
     } catch (error) {
+      console.error("Submission error:", error);
       setStatus({ 
         type: "danger", 
-        message: "Oops! Something went wrong. Please try again or email me directly." 
+        message: "Oops! Something went wrong while sending. Please try again or email me directly." 
       });
     } finally {
       setSubmitting(false);
@@ -119,6 +135,7 @@ function Contact() {
                         placeholder="Your name"
                         value={form.name}
                         onChange={(e) => updateField("name", e.target.value)}
+                        disabled={submitting}
                       />
                     </Form.Group>
                   </Col>
@@ -131,6 +148,7 @@ function Contact() {
                         placeholder="you@example.com"
                         value={form.email}
                         onChange={(e) => updateField("email", e.target.value)}
+                        disabled={submitting}
                       />
                     </Form.Group>
                   </Col>
@@ -144,6 +162,7 @@ function Contact() {
                     placeholder="Describe the role, project, or general inquiry..."
                     value={form.message}
                     onChange={(e) => updateField("message", e.target.value)}
+                    disabled={submitting}
                   />
                 </Form.Group>
 
@@ -159,6 +178,7 @@ function Contact() {
                           checked={!!form.interests[opt.key]}
                           onChange={() => toggleInterest(opt.key)}
                           className="custom-checkbox"
+                          disabled={submitting}
                         />
                       </Col>
                     ))}
@@ -178,7 +198,7 @@ function Contact() {
                   style={{ width: "100%", padding: "10px", fontWeight: "bold" }}
                   disabled={submitting}
                 >
-                  {submitting ? "Processing..." : "Send Message"}
+                  {submitting ? "Sending..." : "Send Message"}
                 </Button>
 
                 <div className="contact-fallback">
