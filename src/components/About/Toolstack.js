@@ -7,9 +7,7 @@ const tools = [
   "Microsoft Excel",
   "Power BI Service",
   "SAP FICO",
-  "Oracle Financials",
-  "Bloomberg",
-  "Windows / macOS",
+  "Oracle Financials"
 ];
 
 function Toolstack() {
