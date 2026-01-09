@@ -1,141 +1,176 @@
-
+// src/data/projectsData.js
 
 export const projectsData = [
   {
-    slug: "budget-ownership-operating-plan",
-    title: "Budget Ownership & Operating Plan Management",
+    slug: "consumer-banking-budget-ownership",
+    title: "Consumer Banking Budget Ownership ($1.2B) & Operating Plan",
     shortDescription:
-      "Built and maintained operating plan models to support budget planning, approvals, and monthly performance reviews.",
-    imageKey: "chatify", // map to your existing image imports in Projects.js
+      "Owned operating budget planning and monthly performance reviews for a $1.2B Consumer Banking budget, improving forecast precision and cycle times.",
+    imageKey: "chatify",
     projects: [
-      "Built and maintained operating plan models supporting annual budgeting, approvals, and monthly reviews.",
-      "Structured model drivers and assumptions to improve transparency of cost movements and accountability.",
-      "Standardized templates and cadence to align stakeholders on forecast updates and variance commentary.",
+      "Owned end-to-end budget planning workflows and monthly performance review cadence for Consumer Banking.",
+      "Built standardized operating plan templates with consistent drivers and assumptions to improve transparency and accountability.",
+      "Streamlined approvals by improving model structure and automating repeatable steps across cycles.",
     ],
     impact: [
-      "Managed $1.2B annual operating budget ownership and reporting.",
-      "Improved forecast precision by approximately ~10% through stronger drivers and assumptions discipline.",
-      "Reduced planning iteration time by improving model structure and stakeholder alignment.",
+      "Managed a $1.2B annual operating budget for Consumer Banking.",
+      "Improved forecast precision by 10% and reduced approval turnaround time by 15% through automation and workflow improvements.",
     ],
     tools: [
-      "Advanced Excel (models, scenario planning, variance analysis)",
-      "SAP FICO (cost center tracking, actuals extraction)",
-      "Standard FP&A frameworks (budgeting, forecasting, KPI packs)",
+      "Advanced Excel (operating plan models, variance analysis)",
+      "Automation (repeatable workflows)",
+      "FP&A budgeting frameworks",
     ],
   },
 
   {
-    slug: "forecast-accuracy-scenario-modeling",
-    title: "Forecast Accuracy Improvement & Scenario Modeling",
+    slug: "integrated-forecasting-sql-bloomberg-python",
+    title: "Integrated Forecasting Model (SQL + Bloomberg + Python)",
     shortDescription:
-      "Designed a scenario-based forecasting framework to improve accuracy and strengthen decision-making.",
+      "Built an integrated forecasting model using SQL, Bloomberg inputs, and Python analytics to reduce forecast variance and improve planning accuracy.",
     imageKey: "bitsOfCode",
     projects: [
-      "Developed forecast model with standardized assumptions and scenario toggles for key drivers.",
-      "Built sensitivity analysis to quantify upside/downside risks and isolate variance contributors.",
-      "Created monthly forecasting workflow to tighten controls and improve consistency across cycles.",
+      "Integrated Bloomberg market data with internal drivers and assumptions into a single forecasting workflow.",
+      "Developed driver-based forecasting logic and analytics in Python to improve accuracy and explainability.",
+      "Created repeatable refresh steps to support consistent forecasting cycles and planning updates.",
     ],
     impact: [
-      "Reduced forecast variance by improving assumptions governance and driver-level visibility.",
-      "Enabled leadership to compare scenarios quickly and make risk-aware planning decisions.",
-      "Improved forecast process reliability through repeatable workflow and documentation.",
+      "Reduced forecast variance from 8% to 5% and increased planning accuracy.",
     ],
     tools: [
-      "Advanced Excel (forecast models, sensitivity tables)",
-      "SQL (driver extraction and reconciliation support)",
-      "Power BI (trend views and forecast vs actual reporting)",
+      "SQL (data extraction and reconciliation)",
+      "Python (forecast analytics)",
+      "Bloomberg data inputs",
+      "Advanced Excel (forecast structure and review packs)",
     ],
   },
 
   {
-    slug: "sql-finance-metrics-pipeline",
-    title: "SQL Finance Metrics Pipeline",
+    slug: "variance-cost-driver-savings",
+    title: "Variance, Trend & Cost-Driver Deep Dive Analysis",
     shortDescription:
-      "Built SQL-based transformations to standardize finance KPIs and feed dashboards and reporting packs.",
+      "Performed deep-dive variance, trend, and cost-driver analysis to surface inefficiencies and support cost optimization decisions.",
     imageKey: "editor",
     projects: [
-      "Designed SQL queries to extract and transform finance metrics into standardized tables.",
-      "Implemented reconciliation checks to reduce manual errors and improve data integrity.",
-      "Delivered clean datasets for reporting packs and dashboard consumption.",
+      "Built variance and trend analysis views to isolate primary cost drivers and operational inefficiencies.",
+      "Partnered with stakeholders to translate analysis into actionable cost-control initiatives.",
+      "Produced leadership-ready summaries linking drivers to financial outcomes and recommended actions.",
     ],
     impact: [
-      "Reduced manual reconciliation time through automated transformations and validation checks.",
-      "Improved reporting consistency by standardizing metric definitions and output formats.",
-      "Accelerated monthly reporting cycle by providing ready-to-use datasets.",
+      "Identified inefficiencies that delivered $2M in operational savings.",
     ],
     tools: [
-      "SQL (CTEs, joins, transformations)",
-      "Excel (validation, reconciliation, pivots)",
-      "Power BI (semantic layer + KPI dashboards)",
+      "Advanced Excel (variance/trend analysis)",
+      "SQL (supporting analysis and data validation)",
+      "FP&A performance management frameworks",
     ],
   },
 
   {
-    slug: "interest-rate-liquidity-simulator",
-    title: "Interest Rate & Liquidity Scenario Simulator",
+    slug: "interest-rate-liquidity-deposit-scenarios",
+    title: "Interest Rate, Liquidity & Deposit Scenario Modeling",
     shortDescription:
-      "Built multi-scenario simulator for rate movements and liquidity planning to support strategic decisions.",
+      "Built multi-scenario models to assess interest-rate exposure, liquidity shifts, and deposit trends to guide long-term financial strategy.",
     imageKey: "leaf",
     projects: [
-      "Created scenario simulator to test interest-rate movements against portfolio and funding assumptions.",
-      "Modeled liquidity outcomes under deposit growth and runoff scenarios.",
-      "Packaged results into leadership-ready summaries with key sensitivities highlighted.",
+      "Developed multi-scenario models to evaluate rate exposure, liquidity sensitivity, and deposit trend changes.",
+      "Packaged scenarios into decision-ready outputs with clear assumptions and sensitivity drivers.",
+      "Enabled faster strategic discussions by standardizing scenario definitions and outputs.",
     ],
     impact: [
-      "Improved visibility into rate sensitivity and liquidity outcomes across scenarios.",
-      "Supported risk-aware budgeting and strategic planning discussions.",
-      "Standardized scenario reporting for faster stakeholder reviews.",
+      "Improved strategic planning through scenario-based visibility into interest-rate exposure and liquidity shifts.",
     ],
     tools: [
-      "Advanced Excel (scenario modeling, sensitivity)",
-      "FP&A frameworks (drivers, assumptions control)",
-      "PowerPoint-style reporting outputs (executive summaries)",
+      "Advanced Excel (scenario/sensitivity modeling)",
+      "FP&A scenario frameworks (assumptions governance)",
+      "Presentation-ready reporting outputs",
     ],
   },
 
   {
-    slug: "automated-reporting-pack",
-    title: "Automated Reporting Pack",
+    slug: "automation-vba-power-query-reporting",
+    title: "Reporting Automation (VBA + Power Query)",
     shortDescription:
-      "Automated recurring management reporting to reduce manual effort and improve data quality.",
+      "Automated recurring financial reporting to reduce manual effort and improve data reliability and close-cycle speed.",
     imageKey: "suicide",
     projects: [
-      "Built repeatable reporting templates for monthly and quarterly reporting packs.",
-      "Automated data refresh steps to minimize manual intervention and errors.",
-      "Created commentary structure to align KPIs, variance explanations, and actions.",
+      "Automated 15+ recurring reporting processes using VBA and Power Query.",
+      "Standardized data refresh and validation checks to improve consistency and reliability.",
+      "Reduced manual preparation by converting repeated tasks into repeatable workflows.",
     ],
     impact: [
-      "Reduced manual reporting effort and improved timeliness of leadership updates.",
-      "Improved reporting accuracy through consistent refresh and validation steps.",
-      "Enabled faster month-end performance review preparation.",
+      "Reduced manual reporting workload by 30% and improved data reliability.",
+      "Cut monthly cycle time by 30% through automation (earlier role).",
     ],
     tools: [
-      "Excel (Power Query concepts, automation patterns)",
-      "SQL (data pulls and metric tables)",
-      "Power BI (dashboarding and distribution views)",
+      "VBA (workflow automation)",
+      "Power Query (data transformation and refresh)",
+      "Advanced Excel (reporting packs)",
     ],
   },
 
   {
-    slug: "executive-kpi-storyboard",
-    title: "Executive KPI Storyboard",
+    slug: "executive-powerbi-kpi-dashboards",
+    title: "Executive Power BI KPI Dashboards",
     shortDescription:
-      "Built an executive KPI pack combining trends and narrative for leadership performance reviews.",
+      "Built executive dashboards for KPI, revenue, expense drivers, and forecast deviations to support leadership decision-making.",
     imageKey: "emotion",
     projects: [
-      "Designed KPI storyboard with trends, variance drivers, and performance narrative.",
-      "Built consistent definitions and visuals to reduce interpretation effort for stakeholders.",
-      "Established review-ready layout for weekly/monthly leadership discussions.",
+      "Designed executive dashboards visualizing KPIs, revenue performance, expense drivers, and forecast deviations.",
+      "Built consistent KPI definitions and reporting views to reduce interpretation effort for stakeholders.",
+      "Improved stakeholder speed-to-insight with clean drilldowns and trend narratives.",
     ],
     impact: [
-      "Improved stakeholder clarity by pairing KPIs with concise variance commentary.",
-      "Increased consistency of leadership reviews through standardized storytelling format.",
-      "Accelerated decision cycles by making insights easier to consume and act on.",
+      "Improved decision-making speed by 25% through KPI and variance trend dashboards (earlier role).",
+      "Enabled senior leadership and FP&A directors to monitor performance and deviations through executive views.",
     ],
     tools: [
-      "Power BI (KPI visuals, trends)",
-      "Excel (supporting analysis, validation)",
-      "FP&A KPI frameworks (definitions, governance)",
+      "Power BI (dashboards, KPI views, trends)",
+      "Excel (supporting analysis and validation)",
+      "SQL (metric support where applicable)",
+    ],
+  },
+
+  {
+    slug: "sap-oracle-consolidation-regulatory-controls",
+    title: "SAP FICO + Oracle Consolidation & Regulatory Controls (RBI/SEBI)",
+    shortDescription:
+      "Consolidated financial statements from SAP FICO and Oracle with strong controls, supporting executive reporting and regulatory compliance.",
+    imageKey: "chatify",
+    projects: [
+      "Consolidated financial statements from SAP FICO & Oracle for executive and investor reporting.",
+      "Implemented strong validation checks and controls to ensure accuracy and audit readiness.",
+      "Maintained strict regulatory compliance (RBI/SEBI) with robust data controls and documentation discipline.",
+    ],
+    impact: [
+      "Achieved 100% accuracy in consolidated reporting and maintained zero audit discrepancies through strong controls and validation.",
+    ],
+    tools: [
+      "SAP FICO",
+      "Oracle Financials",
+      "Controls & compliance (RBI/SEBI)",
+      "Excel (validation and reconciliation)",
+    ],
+  },
+
+  {
+    slug: "fraud-risk-analytics-high-risk-flagging",
+    title: "Fraud-Risk Analytics & High-Risk Transaction Flagging",
+    shortDescription:
+      "Developed fraud-risk analytics to strengthen controls and identify high-risk transactions in partnership with risk teams.",
+    imageKey: "bitsOfCode",
+    projects: [
+      "Developed fraud-risk analytics in collaboration with cross-functional risk teams.",
+      "Built reporting and monitoring views to support risk control improvements and faster investigation workflows.",
+      "Standardized outputs to improve audit readiness and reporting consistency across units.",
+    ],
+    impact: [
+      "Flagged $1.5M in high-risk transactions and strengthened controls.",
+    ],
+    tools: [
+      "SQL/Python (risk analytics and segmentation support)",
+      "Power BI (risk metrics dashboards)",
+      "Risk reporting frameworks",
     ],
   },
 ];

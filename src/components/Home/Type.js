@@ -7,14 +7,15 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "FP&A Analyst",
-          "Financial Planning & Forecasting",
-          "Variance & KPI Analysis",
+          "Strategic FP&A Analyst",
+          "Business Analytics Professional",
+          "Forecasting, Budgeting & Variance Analysis",
           "SQL • Python • Power BI • Advanced Excel",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 40,
+        delay: 60,
       }}
     />
   );

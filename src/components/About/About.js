@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
+import AboutCard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
 
@@ -10,29 +10,27 @@ function About() {
   return (
     <Container fluid className="about-section">
       <Particle />
+
       <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
+        <Row className="justify-content-center" style={{ padding: "10px" }}>
           <Col
             md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
+            className="d-flex flex-column justify-content-center"
+            style={{ paddingTop: "30px", paddingBottom: "50px" }}
           >
-            {/* Using className purple which we mapped to Teal */}
             <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I AM</strong>
+              About <strong className="purple">Me</strong>
             </h1>
-            <Aboutcard />
+
+            <AboutCard />
           </Col>
 
           <Col
             md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
+            style={{ paddingTop: "120px", paddingBottom: "50px" }}
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <img src={laptopImg} alt="About section visual" className="img-fluid" />
           </Col>
         </Row>
 

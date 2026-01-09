@@ -3,20 +3,35 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-function ProjectCards(props) {
+function ProjectCards({ title, description, slug, iconSlug }) {
+  const iconUrl = `https://cdn.simpleicons.org/${iconSlug}?viewbox=auto`;
+
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>{props.description}</Card.Text>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "22px 0 10px",
+        }}
+      >
+        <img
+          src={iconUrl}
+          alt={`${title} icon`}
+          loading="lazy"
+          style={{ width: "64px", height: "64px" }}
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+        />
+      </div>
 
-        <Button
-          as={Link}
-          to={`/projects/${props.slug}`}
-          variant="primary"
-          style={{ marginTop: "10px" }}
-        >
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
+
+        <Button as={Link} to={`/projects/${slug}`} variant="primary" style={{ marginTop: "10px" }}>
           View More
         </Button>
       </Card.Body>

@@ -12,31 +12,46 @@ function AboutCard() {
             <span className="purple">Texas, USA</span>.
             <br />
             <br />
-            I’m a <span className="purple">FP&A Analyst</span> with 4+ years of experience 
-            driving financial performance and strategic planning within banking.
+            I’m a <span className="purple">Strategic FP&A and Business Analyst</span>{" "}
+            with <span className="purple">4+ years of experience</span> supporting
+            financial planning, budgeting, forecasting, and profitability optimization
+            across banking and financial services.
             <br />
             <br />
-            I leverage <span className="purple">SQL, Python, Power BI, and advanced Excel</span> to
-            automate reporting and deliver executive insights.
+            I specialize in translating complex financial data into{" "}
+            <span className="purple">clear, decision-ready insights</span> by combining
+            strong financial fundamentals with{" "}
+            <span className="purple">
+              SQL, Python, Power BI, SAP FICO, and advanced Excel
+            </span>.
           </p>
 
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Budgeting, forecasting, and scenario modeling
+              <ImPointRight /> Budgeting, forecasting, and P&amp;L analysis for large-scale
+              banking portfolios
             </li>
             <li className="about-activity">
-              <ImPointRight /> Automated reporting (Power Query/VBA/Python)
+              <ImPointRight /> Variance, trend, and cost-driver analysis to improve
+              financial performance
             </li>
             <li className="about-activity">
-              <ImPointRight /> Power BI KPI dashboards
+              <ImPointRight /> Automation of reporting workflows and executive KPI
+              dashboards
             </li>
           </ul>
 
-          {/* Updated this color to a lighter teal-grey for better contrast */}
-          <p style={{ color: "#a8dadc", fontStyle: "italic", marginTop: "20px" }}>
-            "Make financial insights simple, actionable, and decision-ready."
+          <p
+            style={{
+              color: "#a8dadc",
+              fontStyle: "italic",
+              marginTop: "20px",
+            }}
+          >
+            “Turning financial complexity into clarity for better decisions.”
           </p>
-          <footer className="blockquote-footer">Jayveen</footer>
+
+          <footer className="blockquote-footer">Jayveen Patel</footer>
         </blockquote>
       </Card.Body>
     </Card>

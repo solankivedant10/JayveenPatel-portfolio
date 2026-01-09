@@ -1,33 +1,26 @@
-// src/components/About/Toolstack.js
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import macOs from "../../Assets/TechIcons/Apple MacOSX.svg";
-import chrome from "../../Assets/TechIcons/Google Chrome.svg";
-import vsCode from "../../Assets/TechIcons/vscode.svg";
-import intelliJ from "../../Assets/TechIcons/intellij-idea.svg";
+
+// List of tools used.  Since not all brand icons are available,
+// we render the names directly.
+const tools = [
+  "Microsoft Excel",
+  "Power BI Service",
+  "SAP FICO",
+  "Oracle Financials",
+  "Bloomberg",
+  "Windows / macOS",
+];
 
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={macOs} alt="Operating System" className="tech-icon-images" />
-        <div className="tech-icons-text">Workstation</div>
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={chrome} alt="Browser" className="tech-icon-images" />
-        <div className="tech-icons-text">Browser</div>
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={vsCode} alt="Editor" className="tech-icon-images" />
-        <div className="tech-icons-text">Automation Scripts</div>
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={intelliJ} alt="IDE" className="tech-icon-images" />
-        <div className="tech-icons-text">Data Tooling</div>
-      </Col>
+      {tools.map((label) => (
+        <Col key={label} xs={6} sm={4} md={2} className="tech-icons">
+          {/* Render the tool name directly for consistent display */}
+          <div className="tech-icons-text">{label}</div>
+        </Col>
+      ))}
     </Row>
   );
 }

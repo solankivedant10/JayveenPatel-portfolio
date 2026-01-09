@@ -1,22 +1,37 @@
 /* ----------------------------------------- */
 /* 1. Global Variables & Base Setup          */
 /* ----------------------------------------- */
-html {
-  --imp-text-color: #2fe6d0; /* Your Teal Branding */
-  --purple-accent: #c95bf5; 
+:root {
+  --imp-text-color: #2fe6d0; /* Teal branding */
+  --purple-accent: #c95bf5;
   --section-background: linear-gradient(
     to bottom left,
     rgba(17, 16, 16, 0.85),
     rgba(12, 8, 24, 0.98)
   );
+
+  /* Common spacing + radius tokens (future-proofing) */
+  --radius-sm: 10px;
+  --radius-md: 15px;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Prefer setting scroll behavior on html element, but respect reduced motion */
+html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   margin: 0;
   font-family: "PT Mono", monospace !important;
   -webkit-font-smoothing: antialiased;
-  background: #0c0513 !important; 
+  background: #0c0513 !important;
   color: white !important;
   overflow-x: hidden;
 }
@@ -37,14 +52,15 @@ body {
 .experience-section,
 .contact-section {
   position: relative !important;
-  z-index: 1; 
-  padding-top: 100px !important; 
+  z-index: 1;
+  padding-top: 100px !important;
   padding-bottom: 80px !important;
   background: var(--section-background) !important;
   min-height: 80vh;
-  border: none !important; 
+  border: none !important;
 }
 
+/* Ensure tsparticles stays behind everything */
 #tsparticles {
   position: fixed !important;
   inset: 0;
@@ -80,9 +96,9 @@ body {
 }
 
 .footer-icons a {
-  color: var(--imp-text-color) !important; 
+  color: var(--imp-text-color) !important;
   font-size: 1.2rem !important;
-  transition: 0.3s;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-icons a:hover {
@@ -107,11 +123,12 @@ body {
   transition: opacity 0.5s ease;
 }
 
+/* Keep in sync with Pre.js ids */
 #preloader-none {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  display: none; 
+  display: none;
 }
 
 #no-scroll {
@@ -128,7 +145,7 @@ body {
   padding: 0.5rem 2rem !important;
   font-size: 1.1rem !important;
   z-index: 2000 !important;
-  background-color: rgba(12, 5, 19, 0.7) !important; 
+  background-color: rgba(12, 5, 19, 0.7) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(47, 230, 208, 0.2);
 }
@@ -146,6 +163,12 @@ body {
   letter-spacing: 0.5px;
 }
 
+.navbar-nav .nav-link {
+  color: white !important;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Underline animation on hover + active route (NavLink sets .active) */
 .navbar-nav .nav-item a::after {
   content: "";
   display: block;
@@ -156,12 +179,8 @@ body {
   transition: width 0.3s ease;
 }
 
-.navbar-nav .nav-link {
-  color: white !important;
-  text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-}
-
-.navbar-nav .nav-item a:hover::after {
+.navbar-nav .nav-item a:hover::after,
+.navbar-nav .nav-link.active::after {
   width: 100%;
 }
 
@@ -179,13 +198,14 @@ body {
 /* ----------------------------------------- */
 
 .quote-card-view {
-  background-color: rgba(255, 255, 255, 0.05) !important; 
+  background-color: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(47, 230, 208, 0.2) !important;
   color: white !important;
 }
 
-.home-about-body, 
-.about-section p, 
+/* Ensure consistent body copy sizing across sections */
+.home-about-body,
+.about-section p,
 .experience-section p,
 .blockquote,
 .project-desc,
@@ -203,7 +223,7 @@ body {
 
 .experience-item {
   position: relative;
-  padding-left: 30px; 
+  padding-left: 30px;
   margin-bottom: 15px;
   text-align: justify;
 }
@@ -211,10 +231,14 @@ body {
 .experience-item::before {
   content: "▹";
   position: absolute;
-  left: 0; 
+  left: 0;
   color: var(--imp-text-color);
   font-weight: bold;
 }
+
+/* ----------------------------------------- */
+/* 6. Cards, Icons & Images                  */
+/* ----------------------------------------- */
 
 /* Project Card Layout Logic */
 .project-card {
@@ -225,30 +249,32 @@ body {
 .project-card-view {
   background-color: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(47, 230, 208, 0.2) !important;
-  height: 100% !important; 
+  height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
   margin-bottom: 20px !important;
-  transition: all 0.4s ease !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  will-change: transform;
 }
 
 .project-card-view:hover {
-  transform: scale(1.02) !important;
+  transform: translateY(-4px) !important;
   box-shadow: 0 4px 15px 5px rgba(47, 230, 208, 0.3) !important;
 }
 
 .project-card-view .card-title {
-  color: white !important; 
+  color: white !important;
   font-weight: bold;
   font-size: 1.3rem;
   margin-top: 15px;
 }
 
 .project-card-view .card-text {
-  color: #dcdcdc !important; 
-  flex-grow: 1; /* Ensures text area pushes buttons to the bottom uniformly */
+  color: #dcdcdc !important;
+  flex-grow: 1;
 }
 
+/* Keep for backward-compat if you still use <Card.Img> in other places */
 .card-img-top {
   height: 200px !important;
   object-fit: contain !important;
@@ -257,7 +283,7 @@ body {
 
 /* Home Header Alignment */
 .home-header {
-  padding-top: 15vh !important; 
+  padding-top: 15vh !important;
   padding-left: 2rem !important;
   text-align: left !important;
   display: flex;
@@ -271,18 +297,20 @@ body {
   margin-left: 0 !important;
 }
 
-.heading { font-size: 2.4em !important; }
-.main-name { color: var(--imp-text-color); }
+.heading {
+  font-size: 2.4em !important;
+}
 
-/* ----------------------------------------- */
-/* 6. Component Scaling (Icons & Images)     */
-/* ----------------------------------------- */
+.main-name {
+  color: var(--imp-text-color);
+}
 
+/* Tech/Tool icon tiles */
 .tech-icons {
   font-size: 1rem !important;
   margin: 15px !important;
   padding: 10px !important;
-  width: 140px !important; 
+  width: 140px !important;
   height: 120px !important;
   display: flex !important;
   flex-direction: column !important;
@@ -290,8 +318,8 @@ body {
   align-items: center !important;
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(47, 230, 208, 0.2) !important;
-  border-radius: 10px !important;
-  transition: all 0.4s ease !important;
+  border-radius: var(--radius-sm) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease !important;
 }
 
 .tech-icons:hover {
@@ -300,7 +328,7 @@ body {
 }
 
 .tech-icons img {
-  width: 50px !important; 
+  width: 50px !important;
   height: 50px !important;
   object-fit: contain !important;
   margin-bottom: 10px !important;
@@ -309,14 +337,16 @@ body {
 .tech-icons-text {
   color: white !important;
   font-size: 0.8rem !important;
+  text-align: center;
 }
 
 /* ----------------------------------------- */
 /* 7. Buttons & Interaction                  */
 /* ----------------------------------------- */
 .btn-primary {
-  background-color: #23a394 !important; 
+  background-color: #23a394 !important;
   border-color: #23a394 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-primary:hover {
@@ -356,9 +386,9 @@ body {
 .experience-card {
   background: rgba(27, 26, 46, 0.4);
   padding: 35px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(47, 230, 208, 0.1);
-  min-height: 500px !important; 
+  min-height: 500px !important;
   display: flex;
   flex-direction: column;
 }
@@ -366,9 +396,25 @@ body {
 .project-detail-card {
   background: rgba(255, 255, 255, 0.04) !important;
   padding: 40px !important;
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(47, 230, 208, 0.2);
   margin-top: 30px;
+}
+
+/* Tool tags used in ProjectDetails */
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool-tag {
+  border: 1px solid rgba(47, 230, 208, 0.25);
+  color: #eaeaea;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 /* ----------------------------------------- */
@@ -377,9 +423,9 @@ body {
 .contact-card {
   background: rgba(27, 26, 46, 0.6);
   padding: 40px;
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(47, 230, 208, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-soft);
 }
 
 .form-control {
@@ -389,7 +435,7 @@ body {
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important; 
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .form-control:focus {
@@ -414,29 +460,91 @@ body {
 
 .resume-embed-wrap {
   width: 100%;
-  height: 1000px; 
+  height: 1000px;
   background: white;
   border-radius: 8px;
   border: 1px solid rgba(47, 230, 208, 0.2);
   overflow: hidden;
 }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0c0513; }
-::-webkit-scrollbar-thumb { background: #23a394; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: var(--imp-text-color); }
+/* Ensure embeds fill wrapper when using object/iframe */
+.resume-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0513;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23a394;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--imp-text-color);
+}
 
 /* ----------------------------------------- */
 /* 11. Media Queries                         */
 /* ----------------------------------------- */
 @media (max-width: 767px) {
-  .navbar { background-color: #1b1a2e !important; }
-  .home-content { padding-top: 5rem !important; text-align: center; }
-  .heading, .heading-name { padding-left: 0 !important; font-size: 1.8em !important; }
-  .resume-embed-wrap { height: 600px; }
-  .tech-icons { width: 110px !important; height: 100px !important; }
+  .navbar {
+    background-color: #1b1a2e !important;
+  }
+
+  .home-content {
+    padding-top: 5rem !important;
+    text-align: center;
+  }
+
+  .heading,
+  .heading-name {
+    padding-left: 0 !important;
+    font-size: 1.8em !important;
+  }
+
+  .home-header {
+    padding-left: 1rem !important;
+    padding-top: 10vh !important;
+  }
+
+  .Typewriter__wrapper {
+    font-size: 1.6em !important;
+  }
+
+  .resume-embed-wrap {
+    height: 600px;
+  }
+
+  .tech-icons {
+    width: 110px !important;
+    height: 100px !important;
+  }
+
+  .contact-card {
+    padding: 24px;
+  }
+
+  .project-detail-card {
+    padding: 24px !important;
+  }
+
+  .experience-card {
+    padding: 24px;
+    min-height: auto !important;
+  }
 }
 
 @media (max-width: 400px) {
-  .navbar-brand-text { font-size: 1.1rem; }
+  .navbar-brand-text {
+    font-size: 1.1rem;
+  }
 }

@@ -4,22 +4,18 @@ import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import { projectsData } from "../../data/projectsData";
 
-// Import your assets
-import budgetImg from "../../Assets/Projects/chatify.png"; 
-import forecastImg from "../../Assets/Projects/blog.png";
-import sqlImg from "../../Assets/Projects/codeEditor.png";
-import interestImg from "../../Assets/Projects/leaf.png";
-import reportingImg from "../../Assets/Projects/suicide.png";
-import kpiImg from "../../Assets/Projects/emotion.png";
-
 function Projects() {
-  const imageMap = {
-    chatify: budgetImg,
-    bitsOfCode: forecastImg,
-    editor: sqlImg,
-    leaf: interestImg,
-    suicide: reportingImg,
-    emotion: kpiImg,
+  // Map each project to a representative icon (internet-served, no downloads)
+  // Adjust slugs anytime without changing UI code.
+  const iconMap = {
+    "consumer-banking-budget-ownership": "microsoftexcel",
+    "integrated-forecasting-sql-bloomberg-python": "python",
+    "variance-cost-driver-savings": "powerbi",
+    "interest-rate-liquidity-deposit-scenarios": "bloomberg",
+    "automation-vba-power-query-reporting": "microsoftexcel",
+    "executive-powerbi-kpi-dashboards": "powerbi",
+    "sap-oracle-consolidation-regulatory-controls": "sap",
+    "fraud-risk-analytics-high-risk-flagging": "oracle",
   };
 
   return (
@@ -29,17 +25,19 @@ function Projects() {
         <h1 className="project-heading">
           Featured <strong className="purple">Work</strong>
         </h1>
+
         <p style={{ color: "white", marginBottom: "30px" }}>
-          Selected FP&A projects focused on budgeting, forecasting, and finance analytics.
+          Selected work across FP&amp;A, forecasting, automation, and finance analytics.
         </p>
+
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {projectsData.map((p) => (
             <Col md={4} className="project-card" key={p.slug}>
               <ProjectCard
-                imgPath={imageMap[p.imageKey] || budgetImg}
                 title={p.title}
                 description={p.shortDescription}
                 slug={p.slug}
+                iconSlug={iconMap[p.slug] || "googleanalytics"}
               />
             </Col>
           ))}

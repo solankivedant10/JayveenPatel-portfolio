@@ -12,22 +12,23 @@ function Footer() {
   };
 
   return (
-    <Container fluid className="footer">
+    <Container fluid className="footer" role="contentinfo">
       <Row>
         <Col md="4" className="footer-copywright">
-          <h3>Designed and Developed by Jayveen Patel</h3>
+          <h3>Jayveen Patel — Portfolio</h3>
         </Col>
 
         <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} JP</h3>
+          <h3>© {year} Jayveen Patel</h3>
         </Col>
 
         <Col md="4" className="footer-body">
-          <ul className="footer-icons">
+          <ul className="footer-icons" aria-label="Social links">
             <li className="social-icons">
               <a
                 href={links.linkedin}
                 aria-label="LinkedIn profile"
+                title="LinkedIn"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -40,7 +41,9 @@ function Footer() {
               <a
                 href={links.email}
                 aria-label="Send email"
+                title="Email"
                 style={{ color: "white" }}
+                rel="noopener noreferrer"
               >
                 <AiOutlineMail />
               </a>

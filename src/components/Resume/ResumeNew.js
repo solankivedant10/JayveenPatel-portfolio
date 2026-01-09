@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/Jayveen_Patel_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 
 function ResumeNew() {
+  // Resume is stored in /public so it can be fetched directly and reliably.
+  // PUBLIC_URL handles deployments where the app is served from a subpath.
+  const resumeUrl = useMemo(() => {
+    const base = process.env.PUBLIC_URL || "";
+    return `${base}/Jayveen_Patel_Resume.pdf`;
+  }, []);
+
   return (
-    <Container fluid className="resume-section">
+    <Container fluid className="resume-section" role="main">
       <Particle />
       <Container>
         <h1 className="project-heading">
@@ -19,7 +25,7 @@ function ResumeNew() {
           <Col xs="auto" className="mb-2">
             <Button
               variant="primary"
-              href={pdf}
+              href={resumeUrl}
               download
               aria-label="Download resume PDF"
               className="d-flex align-items-center"
@@ -30,49 +36,42 @@ function ResumeNew() {
           </Col>
 
           <Col xs="auto" className="mb-2">
-            <Button
-              variant="primary"
-              href={pdf}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Button variant="primary" href={resumeUrl} target="_blank" rel="noreferrer">
               Open in New Tab
             </Button>
           </Col>
         </Row>
 
-        {/* Fix for Issue #8: Enhanced PDF Viewer 
-            The iframe now uses the 'resume-embed-wrap' class from style.css 
-            which is set to 1000px height for desktop readability.
-        */}
+        {/* Viewer */}
         <div className="resume-embed-wrap">
-          <iframe
+          {/* Prefer <object> with iframe fallback for broader compatibility */}
+          <object
+            data={`${resumeUrl}#view=FitH`}
+            type="application/pdf"
             className="resume-embed"
-            title="Jayveen Patel Resume"
-            src={`${pdf}#view=FitH`} // Forces PDF to fit container width
-            width="100%"
-            height="100%"
-            style={{ border: "none" }}
-          />
+            aria-label="Resume PDF Viewer"
+          >
+            <iframe
+              className="resume-embed"
+              title="Jayveen Patel Resume"
+              src={`${resumeUrl}#view=FitH`}
+              style={{ border: "none" }}
+            />
+          </object>
         </div>
 
-        <p className="resume-fallback text-center mt-3" style={{ color: "white", opacity: 0.8 }}>
-          If the viewer doesn't load, you can {" "}
-          <a href={pdf} target="_blank" rel="noreferrer" className="purple">
-            click here
-          </a>
-          {" "}to view or download it directly.
+        <p className="resume-fallback text-center mt-3" style={{ color: "white", opacity: 0.85 }}>
+          If the viewer doesn’t load,{" "}
+          <a href={resumeUrl} target="_blank" rel="noreferrer" className="purple">
+            open the resume directly
+          </a>{" "}
+          (you can download it from there).
         </p>
 
         {/* Bottom Download Button */}
         <Row className="justify-content-center" style={{ padding: "20px 0" }}>
           <Col xs="auto">
-            <Button
-              variant="primary"
-              href={pdf}
-              download
-              className="d-flex align-items-center"
-            >
+            <Button variant="primary" href={resumeUrl} download className="d-flex align-items-center">
               <AiOutlineDownload />
               &nbsp;Download Resume
             </Button>

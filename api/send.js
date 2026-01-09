@@ -14,7 +14,7 @@ export default async (req, res) => {
   try {
     const data = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>', // After domain verification, use your own domain
-      to: 'vedant.s@infijobs.pro', // Your receiving email
+      to: 'jayveenpatel31@gmail.com', // Your receiving email
       subject: `New Inquiry: ${name}`,
       html: `
         <div style="font-family: sans-serif; line-height: 1.6;">
